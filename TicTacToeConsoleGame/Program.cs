@@ -48,6 +48,8 @@ namespace TicTacToeConsoleGame
                 try
                 {
                     choice = int.Parse(Console.ReadLine());
+
+                    // Decide if the choice was already made
                     for (int i = 0; i < gameBoard.GetLength(0); i++)
                     {
                         for (int j = 0; j < gameBoard.GetLength(1); j++)
