@@ -6,8 +6,7 @@ namespace TicTacToeConsoleGame
     {
         static void Main(string[] args)
         {
-            beginGame();
-            
+            beginGame();            
         }
         public static void beginGame()
         {
@@ -19,8 +18,7 @@ namespace TicTacToeConsoleGame
             };
             int turn = 1;
             generateBoard(gameBoard, turn);
-        }
-        
+        }        
         public static void generateBoard(string[,] gameBoard, int turn)
         {
             // Create the board
@@ -59,8 +57,7 @@ namespace TicTacToeConsoleGame
                                 validChoice = true;
                             }                            
                         }
-                    }
-                    
+                    }                    
                 }
                 catch (Exception) { Console.WriteLine("Invalid Choice!\nEnter an number from the available spaces!"); }                
             }
@@ -81,7 +78,6 @@ namespace TicTacToeConsoleGame
                     }
                 }
             }
-
             bool isGameOver = checkWinner(gameBoard, turn);
             if (isGameOver)
             {
@@ -109,11 +105,12 @@ namespace TicTacToeConsoleGame
                 generateBoard(gameBoard, turn);
             }
         }
+
         // Check if game is over
         public static bool checkWinner(string[,] gameBoard, int turn)
         {
             int playerNum = (turn%2==0)?2:1;
-            //horizontal checks
+            // Horizontal checks
             for (int i = 0; i < 3; i++)
             {
                 if (gameBoard[i, 0] == gameBoard[i, 1] && gameBoard[i, 1] == gameBoard[i, 2])
@@ -121,9 +118,8 @@ namespace TicTacToeConsoleGame
                     Console.WriteLine($"Player {playerNum} wins!");
                     return true;
                 }
-
             }
-            //vertical checks
+            // Vertical checks
             for (int i = 0; i < 3; i++)
             {
                 if (gameBoard[0, i] == gameBoard[1, i] && gameBoard[1, i] == gameBoard[2, i])
@@ -132,7 +128,7 @@ namespace TicTacToeConsoleGame
                     return true;
                 }
             }
-            //Diagonal checks
+            // Diagonal checks
             if (gameBoard[0, 0] == gameBoard[1, 1] && gameBoard[1, 1] == gameBoard[2, 2])
             {
                 Console.WriteLine($"Player {playerNum} wins!");
