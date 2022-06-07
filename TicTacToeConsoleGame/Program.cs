@@ -21,14 +21,15 @@ namespace TicTacToeConsoleGame
             generateBoard(gameBoard, turn);
         }
         public static void runGame(string[,] gameBoard, int choice, int turn)
-        {   
+        {
+            string playerVal = (turn % 2 == 0) ? "O" : "X";
             for(int i = 0; i < gameBoard.GetLength(0); i++)
             {
                 for(int j = 0; j < gameBoard.GetLength(1); j++)
                 {
                     if (gameBoard[i,j] == choice.ToString())
-                    {
-                        gameBoard[i,j] = choice.ToString();
+                    {                         
+                        gameBoard[i,j] = playerVal;
                     }
                 }
             }
