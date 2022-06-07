@@ -32,8 +32,7 @@ namespace TicTacToeConsoleGame
                         gameBoard[i,j] = playerVal;
                     }
                 }
-            }
-            
+            }            
 
             bool isGameOver = checkWinner(gameBoard, turn);
             if (isGameOver)
@@ -48,8 +47,7 @@ namespace TicTacToeConsoleGame
                     if (answer == "yes" || answer == "no")
                     {
                         isValidAnswer = true;
-                    }
-                    
+                    }                    
                 }
                 if (answer == "yes")
                 {
@@ -81,6 +79,7 @@ namespace TicTacToeConsoleGame
             Console.WriteLine("|        |        |        |");
             Console.WriteLine($"|    {gameBoard[2, 0]}   |    {gameBoard[2, 1]}   |    {gameBoard[2, 2]}   |");
             Console.WriteLine("|        |        |        |");
+
             int playerNum = (turn%2==0)?2:1;
             Console.WriteLine($"\nTurn {turn}!\nPlayer {playerNum} go!");
             Console.WriteLine("Enter an number from the available spaces!");
@@ -109,11 +108,7 @@ namespace TicTacToeConsoleGame
                     Console.WriteLine("Invalid Choice!\nEnter an number from the available spaces!");
                 }                
             }
-
             runGame(gameBoard, choice, turn);
-
-
-
         }
         public static bool checkWinner(string[,] gameBoard, int turn)
         {
@@ -137,7 +132,6 @@ namespace TicTacToeConsoleGame
                     return true;
                 }
             }
-
             //Diagonal checks
             if (gameBoard[0, 0] == gameBoard[1, 1] && gameBoard[1, 1] == gameBoard[2, 2])
             {
@@ -147,8 +141,7 @@ namespace TicTacToeConsoleGame
             else
             {
                 return false;
-            }
-            
+            }            
         }
     }
 }
