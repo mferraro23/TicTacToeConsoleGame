@@ -69,6 +69,7 @@ namespace TicTacToeConsoleGame
 
         public static void generateBoard(string[,] gameBoard, int turn)
         {
+            Console.Clear();
             Console.WriteLine("|        |        |        |");
             Console.WriteLine($"|    {gameBoard[0, 0]}   |    {gameBoard[0, 1]}   |    {gameBoard[0,2]}   |");
             Console.WriteLine("|        |        |        |");
@@ -87,18 +88,28 @@ namespace TicTacToeConsoleGame
             bool validChoice = false;
             int choice = 0;
             while (!validChoice)
-            {
-                
+            {                
                 try
                 {
                     choice = int.Parse(Console.ReadLine());
-                    validChoice = true;
+                    for (int i = 0; i < gameBoard.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < gameBoard.GetLength(1); j++)
+                        {
+                            if (gameBoard[i, j] == choice.ToString())
+                            {
+                                validChoice = true;
+                            }                            
+                        }
+                    }
+                    
                 }
                 catch (Exception)
                 {
                     Console.WriteLine("Invalid Choice!\nEnter an number from the available spaces!");
-                }
+                }                
             }
+
             runGame(gameBoard, choice, turn);
 
 
